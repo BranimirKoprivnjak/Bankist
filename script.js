@@ -59,6 +59,7 @@ const btnTransfer = document.querySelector('.form__btn--transfer');
 const btnLoan = document.querySelector('.form__btn--loan');
 const btnClose = document.querySelector('.form__btn--close');
 const btnSort = document.querySelector('.btn--sort');
+const btnTheme = document.querySelector('.theme');
 
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
@@ -69,6 +70,21 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 /////////////////////////////////////////////////
+
+const changeTheme = theme => {
+  if (theme) {
+    DarkReader.setFetchMethod(window.fetch)
+    DarkReader.enable({
+      brightness: 100,
+      contrast: 90,
+      sepia: 10
+  });
+    btnTheme.textContent = 'Light mode';
+  } else{
+    DarkReader.disable();
+    btnTheme.textContent = 'Dark mode';
+  }
+}
 
 const formatCur = (value, locale, currency) => {
   return new Intl.NumberFormat(locale, {
@@ -97,8 +113,7 @@ const formatMovementDate = (date, locale) => {
 
 const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = '';
-
-  const movs = sort ? acc.slice().sort((a, b) => a - b) : acc.movements;
+  const movs = sort ? acc.movements.slice().sort((a, b) => a - b) : acc.movements;
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
@@ -327,11 +342,17 @@ btnClose.addEventListener('click', event => {
 let sorted = false;
 btnSort.addEventListener('click', event => {
   event.preventDefault();
-  displayMovements(currentAccount.movements, !sorted);
+  displayMovements(currentAccount, !sorted);
   sorted = !sorted;
 })
 
-// day/month/year
+// Theme
+let dark = false;
+btnTheme.addEventListener('click', event => {
+  event.preventDefault();
+  changeTheme(!dark);
+  dark = !dark;
+})
 
 
 

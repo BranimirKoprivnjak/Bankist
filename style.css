@@ -30,6 +30,25 @@ nav {
   padding: 0 2rem;
 }
 
+.pre__welcome {
+  display: flex;
+}
+
+.theme {
+  border: none;
+  padding: 0.5rem 2rem;
+  font-size: 1.3rem;
+  font-family: inherit;
+  text-align: center;
+  width: 12rem;
+  border-radius: 10rem;
+  margin-right: 1rem;
+  color: inherit;
+  border: 1px solid #fff;
+  transition: all 0.3s;
+  margin-left: 2rem;
+}
+
 .welcome {
   font-size: 1.9rem;
   font-weight: 500;

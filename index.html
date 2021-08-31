@@ -11,13 +11,18 @@
       rel="stylesheet"
     />
 
+    <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.34/darkreader.min.js"></script>
+ 
     <link rel="stylesheet" href="style.css" />
     <title>Bankist</title>
   </head>
   <body>
     <!-- TOP NAVIGATION -->
     <nav>
-      <p class="welcome">Log in to get started</p>
+      <div class="pre__welcome">
+        <p class="welcome">Log in to get started</p>
+        <button class="theme">Dark mode</button>
+      </div>
       <img src="logo.png" alt="Logo" class="logo" />
       <form class="login">
         <input
@@ -114,6 +119,7 @@
       </div>
 
       <!-- LOGOUT TIMER -->
+    
       <p class="logout-timer">
         You will be logged out in <span class="timer">05:00</span>
       </p>
